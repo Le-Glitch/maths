@@ -46,15 +46,19 @@ for (int i = startValue; i < endValue; i++)
 //Checks the list of prime numbers to see if there is a prime number that is 2 larger than the one being checked
 foreach (int number in numbers)
 {
-    if (numbers.Contains(number + 2))
+    if (numbers.Contains(number + 2) && number >= 3)
     {
         primeTwins.Add($"({number}, {number + 2})");
     }
 }
 
-//Checks the list of prime numbers to see if there are prime numbers where the smallest and largest differ by 6
+//Checks the list of prime numbers to see if there are prime numbers where the smallest and largest differ by at most 6
 foreach (int number in numbers)
 {
+    if (numbers.Contains(number + 2) && numbers.Contains(number + 4) && number >= 3)
+    {
+        primeTriplets.Add($"({number}, {number + 2}, {number + 4})");
+    }
     if (numbers.Contains(number + 2) && numbers.Contains(number + 6) && number >= 3)
     {
         primeTriplets.Add($"({number}, {number + 2}, {number + 6})");
